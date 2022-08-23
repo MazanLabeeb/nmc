@@ -1,0 +1,59 @@
+[
+  {
+    "name": "cookiesEnabled",
+    "value": "cookiesEnabled",
+    "domain": "www.nmc.org.uk",
+    "path": "/",
+    "expires": -1,
+    "size": 28,
+    "httpOnly": false,
+    "secure": false,
+    "session": true,
+    "sameParty": false,
+    "sourceScheme": "Secure",
+    "sourcePort": 443
+  },
+  {
+    "name": "__RequestVerificationToken",
+    "value": "9rvUKgt_Tit8iEl3IFj-85OhqCAXr9ABiubMk9clVvUJAOEQTFKTaY-QRQ3Z_rjpLD5KoTnB3Ph5bfG6Nt8AaXNpF1xuUCPvyd1OKm5Eaok1",
+    "domain": "www.nmc.org.uk",
+    "path": "/",
+    "expires": -1,
+    "size": 134,
+    "httpOnly": true,
+    "secure": false,
+    "session": true,
+    "sameParty": false,
+    "sourceScheme": "Secure",
+    "sourcePort": 443
+  },
+  {
+    "name": "EmployerConfirmationsCookie",
+    "value": "7F4F0A00FAF1238F90917C2F57B53F4A36B304D6FDF94E04B186474A2D1A508E4822C3F297FDDB201A81034FD8FE3CBBE7B53D9798EE0010160EDF4ED4F19B063D1FAE8FAA192DAA834617CA52D06ACBF0929B4E25AB283F7D4BAF8E3E4433CD07FDA3458AB987F421226AC553E4E085A703F5CB5601CE169640E008E6D2F7E35D88D130ADFA7B6A14CA9FCA758C50CE",
+    "domain": "www.nmc.org.uk",
+    "path": "/",
+    "expires": -1,
+    "size": 315,
+    "httpOnly": true,
+    "secure": true,
+    "session": true,
+    "sameParty": false,
+    "sourceScheme": "Secure",
+    "sourcePort": 443
+  },
+  {
+    "name": "ASP.NET_SessionId",
+    "value": "g2b4qlxjr1ki1ywjekas0rxv",
+    "domain": "www.nmc.org.uk",
+    "path": "/",
+    "expires": -1,
+    "size": 41,
+    "httpOnly": true,
+    "secure": false,
+    "session": true,
+    "sameSite": "Lax",
+    "sameParty": false,
+    "sourceScheme": "Secure",
+    "sourcePort": 443
+  }
+]

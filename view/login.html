@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com">  </script>
+    <title>Login</title>
+</head>
+<body>
+    <div class="bg-slate-800 h-screen ring-1 ring-slate-700/5 shadow-md flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8"> 
+        <div class="max-w-md w-full  space-y-8">
+          <div>
+            <h2 class="mt-6 text-center text-3xl tracking-tight font-bold text-teal-600">Employer Confirmations</h2>
+            <p class="mt-2 text-center text-ellipsis font-semibold text-gray-600">Login </p>
+          </div>
+          <form class="mt-8 space-y-6" action="/login" method="POST">
+            <div class="bg-slate-800 rounded-lg px-6 py-8 ring-1 ring-slate-700 shadow-2xl">
+              <div class="mb-4">
+                <input id="caller-code" name="code" type="text"  required class="appearance-none relative block w-full px-3 py-2 border bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500   rounded-t-md focus:outline-none focus:z-10 sm:text-sm" placeholder=" Employer caller code">
+              </div>
+              <div>
+                <input id="pass-number" name="pass" type="password" required class="appearance-none rounded-none relative block w-full px-3 py-2 border bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500   rounded-b-md focus:outline-none focus:z-10 sm:text-sm" placeholder="Employer pass number">
+              </div>
+            </div>
+      
+            <div class="flex items-center justify-between">
+
+      
+              
+            </div>
+      
+            <div>
+              <button type="submit" class="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-pink-500 hover:bg-blue-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                <span class="absolute left-0 inset-y-0 flex items-center pl-3">
+                  <!-- Heroicon name: solid/lock-closed -->
+                  <svg class="h-5 w-5 text-pink-200 group-hover:text-blue-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                    <path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd" />
+                  </svg>
+                </span>
+                Log in
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+</body>
+</html>
