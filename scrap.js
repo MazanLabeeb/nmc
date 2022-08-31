@@ -13,16 +13,16 @@ module.exports.download = (code, date) => new Promise(async (resolve, reject) =>
     return resolve({ invalidDetails: true });
   }
   const browser = await puppeteer.launch({
-    headless: false,
+    headless: true,
   });
   const page = await browser.newPage();
 
 
 
   //load cookies
-  try{
+  try {
     var cookiesString = await fs.readFile("./cookies.json");
-  }catch (e) {
+  } catch (e) {
     await browser.close();
     return reject({ loggedIn: false });
   }
@@ -42,12 +42,15 @@ module.exports.download = (code, date) => new Promise(async (resolve, reject) =>
 
   try {
     await page.type("#employerConfirmationsForm > div.form-body > ul > li:nth-child(2) > div.form-group.form-pin.search-group > input", code);
-    
-    console.log("> "+ "Logs: Entering Code");
-    
+
+    console.log("> " + "Logs: Entering Code");
+
   } catch (e) {
     await browser.close();
-    reject({ loggedIn: false });
+    console.log("> " + "Session Expired");
+
+    return reject({ loggedIn: false });
+
   }
 
   await page.type("#employerConfirmationsForm > div.form-body > ul > li:nth-child(2) > div.form-group.form-date.search-group > input.form-control.dateDay.allFields.cookies-only-disabled.autotab.validateOneRow", date.split("/")[0]);
@@ -55,48 +58,55 @@ module.exports.download = (code, date) => new Promise(async (resolve, reject) =>
   await page.type("#employerConfirmationsForm > div.form-body > ul > li:nth-child(2) > div.form-group.form-date.search-group > input.form-control.datefour.allFields.checkYear.checkYearPast.cookies-only-disabled.autotab.validateOneRow", date.split("/")[2]);
 
 
-  console.log("> "+ "Entering Date");
+  console.log("> " + "Entering Date");
 
 
   try {
     await page.waitForSelector("#submitForm");
     await page.click("#submitForm");
 
-    console.log("> "+ "Form Submitted");
+    console.log("> " + "Form Submitted");
 
   } catch (e) {
+    console.log("> " + "Invalid Details - Stage 1");
+    await browser.close();
     resolve({ invalidDetails: true });
   }
 
   // ADD ERROR HANDLING HERE
-  await page.waitForSelector("#ajaxForm > div.module.share > ul > li:nth-child(2) > a");
-  var nextPage = "https://www.nmc.org.uk/" + await page.$eval('#ajaxForm > div.module.share > ul > li:nth-child(2) > a', anchor => anchor.getAttribute('href'));
+  try {
+    var nextPage = "https://www.nmc.org.uk/" + await page.$eval('#ajaxForm > div.module.share > ul > li:nth-child(2) > a', anchor => anchor.getAttribute('href'));
+  } catch (e) {
+    await browser.close();
+    console.log("> " + "Invalid Details - Stage 2");
+    return resolve({ invalidDetails: true });
+  }
 
 
 
-  await page.evaluate((code,nextPage) => {
+  await page.evaluate((code, nextPage) => {
     fetch(nextPage)
       .then((res) => { return res.blob(); })
       .then((data) => {
-        
+
         var a = document.createElement("a");
         a.href = window.URL.createObjectURL(data);
         a.download = code;
         a.click();
       });
   }, code, nextPage);
-  
 
-  
+
+
   await sleep(3000);
 
-  console.log("> "+ "File Downloaded");
+  console.log("> " + "File Downloaded");
 
-  
+
   let fileName = code + ".pdf";
-  resolve({ invalidDetails: false, fileName : fileName });
+  resolve({ invalidDetails: false, fileName: fileName });
 
 
-  
-  // await browser.close();
+
+  await browser.close();
 });

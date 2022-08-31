@@ -1,0 +1,800 @@
+
+
+<!DOCTYPE html>
+    <!--[if lt IE 8]> <html lang="en-GB" class="lt-ie9 lt-ie8 no-js"> <![endif]-->
+    <!--[if lt IE 9]> <html lang="en-GB" class="lt-ie9 no-js"> <![endif]-->
+    <!--[if lt IE 10]> <html lang="en-GB" class="lt-ie10 no-js"> <![endif]-->
+    <!--[if gt IE 8]><!-->
+    <html lang="en-GB" class="no-js">
+    <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"><script type="text/javascript">window.NREUM||(NREUM={});NREUM.info = {"beacon":"bam.nr-data.net","errorBeacon":"bam.nr-data.net","licenseKey":"cd831c8cd4","applicationID":"17149674","transactionName":"YFZXNxRZWBBZU0QPV1kceDUlF3MRSl9CUggDY1QEA3tZDUxCXwpUUkEaCghcUxs=","queueTime":0,"applicationTime":11,"ttGuid":"4A2A4042240EFAF0","agent":""}</script><script type="text/javascript">(window.NREUM||(NREUM={})).init={ajax:{deny_list:["bam.nr-data.net"]}};(window.NREUM||(NREUM={})).loader_config={licenseKey:"cd831c8cd4",applicationID:"17149674"};window.NREUM||(NREUM={}),__nr_require=function(t,e,n){function r(n){if(!e[n]){var i=e[n]={exports:{}};t[n][0].call(i.exports,function(e){var i=t[n][1][e];return r(i||e)},i,i.exports)}return e[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var i=0;i<n.length;i++)r(n[i]);return r}({1:[function(t,e,n){function r(){}function i(t,e,n,r){return function(){return s.recordSupportability("API/"+e+"/called"),o(t+e,[u.now()].concat(c(arguments)),n?null:this,r),n?void 0:this}}var o=t("handle"),a=t(9),c=t(10),f=t("ee").get("tracer"),u=t("loader"),s=t(4),d=NREUM;"undefined"==typeof window.newrelic&&(newrelic=d);var p=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],l="api-",v=l+"ixn-";a(p,function(t,e){d[e]=i(l,e,!0,"api")}),d.addPageAction=i(l,"addPageAction",!0),d.setCurrentRouteName=i(l,"routeName",!0),e.exports=newrelic,d.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(t,e){var n={},r=this,i="function"==typeof e;return o(v+"tracer",[u.now(),t,n],r),function(){if(f.emit((i?"":"no-")+"fn-start",[u.now(),r,i],n),i)try{return e.apply(this,arguments)}catch(t){throw f.emit("fn-err",[arguments,this,t],n),t}finally{f.emit("fn-end",[u.now()],n)}}}};a("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(t,e){m[e]=i(v,e)}),newrelic.noticeError=function(t,e){"string"==typeof t&&(t=new Error(t)),s.recordSupportability("API/noticeError/called"),o("err",[t,u.now(),!1,e])}},{}],2:[function(t,e,n){function r(t){if(NREUM.init){for(var e=NREUM.init,n=t.split("."),r=0;r<n.length-1;r++)if(e=e[n[r]],"object"!=typeof e)return;return e=e[n[n.length-1]]}}e.exports={getConfiguration:r}},{}],3:[function(t,e,n){var r=!1;try{var i=Object.defineProperty({},"passive",{get:function(){r=!0}});window.addEventListener("testPassive",null,i),window.removeEventListener("testPassive",null,i)}catch(o){}e.exports=function(t){return r?{passive:!0,capture:!!t}:!!t}},{}],4:[function(t,e,n){function r(t,e){var n=[a,t,{name:t},e];return o("storeMetric",n,null,"api"),n}function i(t,e){var n=[c,t,{name:t},e];return o("storeEventMetrics",n,null,"api"),n}var o=t("handle"),a="sm",c="cm";e.exports={constants:{SUPPORTABILITY_METRIC:a,CUSTOM_METRIC:c},recordSupportability:r,recordCustom:i}},{}],5:[function(t,e,n){function r(){return c.exists&&performance.now?Math.round(performance.now()):(o=Math.max((new Date).getTime(),o))-a}function i(){return o}var o=(new Date).getTime(),a=o,c=t(11);e.exports=r,e.exports.offset=a,e.exports.getLastTimestamp=i},{}],6:[function(t,e,n){function r(t,e){var n=t.getEntries();n.forEach(function(t){"first-paint"===t.name?l("timing",["fp",Math.floor(t.startTime)]):"first-contentful-paint"===t.name&&l("timing",["fcp",Math.floor(t.startTime)])})}function i(t,e){var n=t.getEntries();if(n.length>0){var r=n[n.length-1];if(u&&u<r.startTime)return;var i=[r],o=a({});o&&i.push(o),l("lcp",i)}}function o(t){t.getEntries().forEach(function(t){t.hadRecentInput||l("cls",[t])})}function a(t){var e=navigator.connection||navigator.mozConnection||navigator.webkitConnection;if(e)return e.type&&(t["net-type"]=e.type),e.effectiveType&&(t["net-etype"]=e.effectiveType),e.rtt&&(t["net-rtt"]=e.rtt),e.downlink&&(t["net-dlink"]=e.downlink),t}function c(t){if(t instanceof y&&!w){var e=Math.round(t.timeStamp),n={type:t.type};a(n),e<=v.now()?n.fid=v.now()-e:e>v.offset&&e<=Date.now()?(e-=v.offset,n.fid=v.now()-e):e=v.now(),w=!0,l("timing",["fi",e,n])}}function f(t){"hidden"===t&&(u=v.now(),l("pageHide",[u]))}if(!("init"in NREUM&&"page_view_timing"in NREUM.init&&"enabled"in NREUM.init.page_view_timing&&NREUM.init.page_view_timing.enabled===!1)){var u,s,d,p,l=t("handle"),v=t("loader"),m=t(8),g=t(3),y=NREUM.o.EV;if("PerformanceObserver"in window&&"function"==typeof window.PerformanceObserver){s=new PerformanceObserver(r);try{s.observe({entryTypes:["paint"]})}catch(h){}d=new PerformanceObserver(i);try{d.observe({entryTypes:["largest-contentful-paint"]})}catch(h){}p=new PerformanceObserver(o);try{p.observe({type:"layout-shift",buffered:!0})}catch(h){}}if("addEventListener"in document){var w=!1,b=["click","keydown","mousedown","pointerdown","touchstart"];b.forEach(function(t){document.addEventListener(t,c,g(!1))})}m(f)}},{}],7:[function(t,e,n){function r(t,e){if(!i)return!1;if(t!==i)return!1;if(!e)return!0;if(!o)return!1;for(var n=o.split("."),r=e.split("."),a=0;a<r.length;a++)if(r[a]!==n[a])return!1;return!0}var i=null,o=null,a=/Version\/(\S+)\s+Safari/;if(navigator.userAgent){var c=navigator.userAgent,f=c.match(a);f&&c.indexOf("Chrome")===-1&&c.indexOf("Chromium")===-1&&(i="Safari",o=f[1])}e.exports={agent:i,version:o,match:r}},{}],8:[function(t,e,n){function r(t){function e(){t(c&&document[c]?document[c]:document[o]?"hidden":"visible")}"addEventListener"in document&&a&&document.addEventListener(a,e,i(!1))}var i=t(3);e.exports=r;var o,a,c;"undefined"!=typeof document.hidden?(o="hidden",a="visibilitychange",c="visibilityState"):"undefined"!=typeof document.msHidden?(o="msHidden",a="msvisibilitychange"):"undefined"!=typeof document.webkitHidden&&(o="webkitHidden",a="webkitvisibilitychange",c="webkitVisibilityState")},{}],9:[function(t,e,n){function r(t,e){var n=[],r="",o=0;for(r in t)i.call(t,r)&&(n[o]=e(r,t[r]),o+=1);return n}var i=Object.prototype.hasOwnProperty;e.exports=r},{}],10:[function(t,e,n){function r(t,e,n){e||(e=0),"undefined"==typeof n&&(n=t?t.length:0);for(var r=-1,i=n-e||0,o=Array(i<0?0:i);++r<i;)o[r]=t[e+r];return o}e.exports=r},{}],11:[function(t,e,n){e.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(t,e,n){function r(){}function i(t){function e(t){return t&&t instanceof r?t:t?u(t,f,a):a()}function n(n,r,i,o,a){if(a!==!1&&(a=!0),!l.aborted||o){t&&a&&t(n,r,i);for(var c=e(i),f=m(n),u=f.length,s=0;s<u;s++)f[s].apply(c,r);var p=d[w[n]];return p&&p.push([b,n,r,c]),c}}function o(t,e){h[t]=m(t).concat(e)}function v(t,e){var n=h[t];if(n)for(var r=0;r<n.length;r++)n[r]===e&&n.splice(r,1)}function m(t){return h[t]||[]}function g(t){return p[t]=p[t]||i(n)}function y(t,e){l.aborted||s(t,function(t,n){e=e||"feature",w[n]=e,e in d||(d[e]=[])})}var h={},w={},b={on:o,addEventListener:o,removeEventListener:v,emit:n,get:g,listeners:m,context:e,buffer:y,abort:c,aborted:!1};return b}function o(t){return u(t,f,a)}function a(){return new r}function c(){(d.api||d.feature)&&(l.aborted=!0,d=l.backlog={})}var f="nr@context",u=t("gos"),s=t(9),d={},p={},l=e.exports=i();e.exports.getOrSetContext=o,l.backlog=d},{}],gos:[function(t,e,n){function r(t,e,n){if(i.call(t,e))return t[e];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(t,e,{value:r,writable:!0,enumerable:!1}),r}catch(o){}return t[e]=r,r}var i=Object.prototype.hasOwnProperty;e.exports=r},{}],handle:[function(t,e,n){function r(t,e,n,r){i.buffer([t],r),i.emit(t,e,n)}var i=t("ee").get("handle");e.exports=r,r.ee=i},{}],id:[function(t,e,n){function r(t){var e=typeof t;return!t||"object"!==e&&"function"!==e?-1:t===window?0:a(t,o,function(){return i++})}var i=1,o="nr@id",a=t("gos");e.exports=r},{}],loader:[function(t,e,n){function r(){if(!M++){var t=T.info=NREUM.info,e=m.getElementsByTagName("script")[0];if(setTimeout(u.abort,3e4),!(t&&t.licenseKey&&t.applicationID&&e))return u.abort();f(x,function(e,n){t[e]||(t[e]=n)});var n=a();c("mark",["onload",n+T.offset],null,"api"),c("timing",["load",n]);var r=m.createElement("script");0===t.agent.indexOf("http://")||0===t.agent.indexOf("https://")?r.src=t.agent:r.src=l+"://"+t.agent,e.parentNode.insertBefore(r,e)}}function i(){"complete"===m.readyState&&o()}function o(){c("mark",["domContent",a()+T.offset],null,"api")}var a=t(5),c=t("handle"),f=t(9),u=t("ee"),s=t(7),d=t(2),p=t(3),l=d.getConfiguration("ssl")===!1?"http":"https",v=window,m=v.document,g="addEventListener",y="attachEvent",h=v.XMLHttpRequest,w=h&&h.prototype,b=!1;NREUM.o={ST:setTimeout,SI:v.setImmediate,CT:clearTimeout,XHR:h,REQ:v.Request,EV:v.Event,PR:v.Promise,MO:v.MutationObserver};var E=""+location,x={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1216.min.js"},O=h&&w&&w[g]&&!/CriOS/.test(navigator.userAgent),T=e.exports={offset:a.getLastTimestamp(),now:a,origin:E,features:{},xhrWrappable:O,userAgent:s,disabled:b};if(!b){t(1),t(6),m[g]?(m[g]("DOMContentLoaded",o,p(!1)),v[g]("load",r,p(!1))):(m[y]("onreadystatechange",i),v[y]("onload",r)),c("mark",["firstbyte",a.getLastTimestamp()],null,"api");var M=0}},{}],"wrap-function":[function(t,e,n){function r(t,e){function n(e,n,r,f,u){function nrWrapper(){var o,a,s,p;try{a=this,o=d(arguments),s="function"==typeof r?r(o,a):r||{}}catch(l){i([l,"",[o,a,f],s],t)}c(n+"start",[o,a,f],s,u);try{return p=e.apply(a,o)}catch(v){throw c(n+"err",[o,a,v],s,u),v}finally{c(n+"end",[o,a,p],s,u)}}return a(e)?e:(n||(n=""),nrWrapper[p]=e,o(e,nrWrapper,t),nrWrapper)}function r(t,e,r,i,o){r||(r="");var c,f,u,s="-"===r.charAt(0);for(u=0;u<e.length;u++)f=e[u],c=t[f],a(c)||(t[f]=n(c,s?f+r:r,i,f,o))}function c(n,r,o,a){if(!v||e){var c=v;v=!0;try{t.emit(n,r,o,e,a)}catch(f){i([f,n,r,o],t)}v=c}}return t||(t=s),n.inPlace=r,n.flag=p,n}function i(t,e){e||(e=s);try{e.emit("internal-error",t)}catch(n){}}function o(t,e,n){if(Object.defineProperty&&Object.keys)try{var r=Object.keys(t);return r.forEach(function(n){Object.defineProperty(e,n,{get:function(){return t[n]},set:function(e){return t[n]=e,e}})}),e}catch(o){i([o],n)}for(var a in t)l.call(t,a)&&(e[a]=t[a]);return e}function a(t){return!(t&&t instanceof Function&&t.apply&&!t[p])}function c(t,e){var n=e(t);return n[p]=t,o(t,n,s),n}function f(t,e,n){var r=t[e];t[e]=c(r,n)}function u(){for(var t=arguments.length,e=new Array(t),n=0;n<t;++n)e[n]=arguments[n];return e}var s=t("ee"),d=t(10),p="nr@original",l=Object.prototype.hasOwnProperty,v=!1;e.exports=r,e.exports.wrapFunction=c,e.exports.wrapInPlace=f,e.exports.argsToArray=u},{}]},{},["loader"]);</script>
+        <title>Page not found - The Nursing and Midwifery Council</title>
+        <meta name="title" content="Page not found" />
+        <meta name="description" content="" />
+
+
+        <link href="/page-not-found/" rel="canonical" />
+
+        <link rel="stylesheet" href="/static/css/fonts.net.css">
+        <link href="/static/css/site.css?v=_bZNT9zquUuAf_081S-Q0cWSMoPmXeuoExT98H20-Ow1" rel="stylesheet"/>
+
+        
+        <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js"
+                data-cbid="4d583bed-6f5b-4744-af08-16b159bce139"
+                data-blockingmode="auto" type="text/javascript"></script>
+
+        <script src="/static/js/head.js?v=b9SCJRDiOlOtrC9OyeWsey9tPOkaqZh4C-EXWZyj9aY1"></script>
+
+        <!--[if lt IE 9]>
+        <link rel="stylesheet" href="/static/css/lt-ie9.css">
+    <![endif]-->
+        <!--[if lte IE 9]>
+        <link rel="stylesheet" href="/static/css/lt-ie10.css">
+    <![endif]-->
+        <link rel="shortcut icon" type="image/x-icon" href="/static/img/favicon.ico">
+    <link rel="alternate" type="application/rss+xml" title="RSS 2.0" href="/news/news-and-updates/news-feed/?feedFormat=rss" />
+    <link rel="alternate" type="application/atom+xml" title="Atom 0.3" href="/news/news-and-updates/news-feed/?feedFormat=atom" />
+
+        
+    
+    
+
+
+
+        <!-- Google Tag Manager -->
+        <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-PHGTNMV');</script>
+        <!-- End Google Tag Manager -->
+
+
+        <script>
+            var _prum = [['id', '5523993fabe53d6779f1f167'],
+            ['mark', 'firstbyte', (new Date()).getTime()]];
+            (function () {
+                var s = document.getElementsByTagName('script')[0]
+                    , p = document.createElement('script');
+                p.async = 'async';
+                p.src = '//rum-static.pingdom.net/prum.min.js';
+                s.parentNode.insertBefore(p, s);
+            })();
+        </script>
+
+        
+
+    </head>
+    <body>
+        <!-- Google Tag Manager (noscript) -->
+        <noscript>
+            <iframe title="Tag Manager" src="https://www.googletagmanager.com/ns.html?id=GTM-PHGTNMV"
+                    height="0" width="0" style="display: none; visibility: hidden"></iframe>
+        </noscript>
+        <!-- End Google Tag Manager (noscript) -->
+
+        <a class="skip-to-content-link" aria-hidden="true" href="#main">Skip to content</a>
+
+        <div class="dcnav-container">
+            <div class="dcnav-root">
+
+                
+
+
+    <header class="header zindex-fix" role="banner">
+        <div class="container">
+            <div class="row">
+                <div class="logo">
+                    
+                        <a class="removePrint" href="/" title="Return to homepage">
+                            <img src="/static/img/refresh/logo-color-stacked.svg" alt="The Nursing and Midwifery Council" />
+                        </a>
+                    
+                </div>                
+
+                    <!--/.header-bar-->
+    <ul class="header-links">
+
+
+            <li>
+                <a href="/about-us/our-role/ein-rol/" lang="cy" hreflang="cy">
+                    Cymraeg
+                </a>
+            </li>
+
+                <li>   
+
+<a href="/news/coronavirus/" >Covid-19 hub</a>
+
+</li>
+                <li>   
+
+<a href="/concerns-nurses-midwives/hearings/hearings-sanctions/" title="go to hearings"  target="_top">Latest hearings</a>
+
+</li>
+                <li>   
+
+<a href="https://online.nmc-uk.org/Account/Login?ReturnUrl=/" title="NMC Online"  target="_top">NMC Online</a>
+
+</li>
+
+            <li>
+                <a href="/contact-us/">
+
+                    
+
+Contact us                </a>
+            </li>
+    </ul>
+
+                    <!--/.header-links-->
+                
+                <div class="header-feature">
+                            
+
+ 
+    <!-- <a role="menuitem" tabindex="-1" href="/registration/search-the-register/" class="header-register"> -->
+<a href="/registration/search-the-register/" class="header-register">
+    <span>Search the register</span>
+    <span class="icon icon-24 desktop-inline-block"><img src="/static/img/refresh/arrow-right.svg" alt="" /></span>
+    <span class="icon icon-24 mobile-inline-block"><img src="/static/img/refresh/arrow-right-white.svg" alt="" /></span>
+</a>
+
+ 
+    <!-- <a role="menuitem" tabindex="-1" href="/registration/employer-confirmations/" class="header-register"> -->
+<a href="/registration/employer-confirmations/" class="header-register">
+    <span>Employer confirmations</span>
+    <span class="icon icon-24 desktop-inline-block"><img src="/static/img/refresh/arrow-right.svg" alt="" /></span>
+    <span class="icon icon-24 mobile-inline-block"><img src="/static/img/refresh/arrow-right-white.svg" alt="" /></span>
+</a>
+                </div>
+                <!--/.header-feature-->
+
+                <div class="header-bar">
+                    <a class="header-nav" href="#footer" data-nav="true">
+                        <span>Menu</span>
+                        <svg role="presentation"><use xlink:href="/static/img/sprite.svg#nav"></use></svg>
+                    </a>
+                    <a class="header-search" href="#search-criteria" data-search="true">
+                        <span>Search</span>
+                        <img src="/static/img/refresh/search-white.svg" class="header-search__img" alt="" />
+                        <img src="/static/img/refresh/search.svg" class="header-search__img header-search__img--active" alt="" />
+
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </header>
+
+                    <!-- Main navigation -->
+    <nav class="dcnav" id="nav" role="navigation">
+        <div class="container dcnav-wrapper">
+            <h2 class="sr-only">Menu</h2>
+            <ul class="dcnav-menu" role="menubar" aria-label="Main Navigation">
+                <li role="none" class="dcnav-item dcnav-feature">
+                    
+ 
+    <!-- <a role="menuitem" tabindex="-1" href="/registration/search-the-register/" class=""> -->
+<a href="/registration/search-the-register/" class="">
+    <span>Search the register</span>
+    <span class="icon icon-24 desktop-inline-block"><img src="/static/img/refresh/arrow-right.svg" alt="" /></span>
+    <span class="icon icon-24 mobile-inline-block"><img src="/static/img/refresh/arrow-right-white.svg" alt="" /></span>
+</a>
+
+                </li>
+                <li role="none" class="dcnav-item dcnav-feature">
+                    
+ 
+    <!-- <a role="menuitem" tabindex="-1" href="/registration/employer-confirmations/" class=""> -->
+<a href="/registration/employer-confirmations/" class="">
+    <span>Employer confirmations</span>
+    <span class="icon icon-24 desktop-inline-block"><img src="/static/img/refresh/arrow-right.svg" alt="" /></span>
+    <span class="icon icon-24 mobile-inline-block"><img src="/static/img/refresh/arrow-right-white.svg" alt="" /></span>
+</a>
+
+                </li>
+
+                        <li role="none" class="dcnav-item ">
+                            <a class="dcnav-link" role="menuitem" aria-haspopup="true" aria-expanded="false" tabindex="0" href="/about-us/">
+                                About us
+                                <button aria-expanded="false" aria-label="Open About us dropdown menu" type="button" class="drop"></button>
+                            </a>
+                            <ul class="dcnav-menu">
+
+
+                                <li class="dcnav-item" role="none">
+                                    <button class="dcnav-link dcnav-back" type="button">Back</button>
+                                    
+                                    <h3 class="dcnav-title">
+                                        <a role="menuitem" tabindex="-1" class="dcnav-link" href="/about-us/">About us</a>
+                                    </h3>
+                                </li>
+                                
+                                <!-- Sub children start -->
+                                    <li role="none" class="dcnav-item is-ajax"  data-id="1431088039">
+                                        <a role="menuitem" tabindex="0" class="dcnav-link" href="/about-us/our-role/">What we do</a>
+                                    </li>
+                                    <li role="none" class="dcnav-item is-ajax"  data-id="1789943180">
+                                        <a role="menuitem" tabindex="0" class="dcnav-link" href="/about-us/governance/">Governance</a>
+                                    </li>
+                                    <li role="none" class="dcnav-item is-ajax"  data-id="655036230">
+                                        <a role="menuitem" tabindex="0" class="dcnav-link" href="/about-us/reports-and-accounts/">Reports and accounts</a>
+                                    </li>
+                                    <li role="none" class="dcnav-item is-ajax"  data-id="732886078">
+                                        <a role="menuitem" tabindex="0" class="dcnav-link" href="/about-us/careers/">Careers</a>
+                                    </li>
+                                    <li role="none" class="dcnav-item is-ajax"  data-id="532705978">
+                                        <a role="menuitem" tabindex="0" class="dcnav-link" href="/about-us/consultations/">Consultations</a>
+                                    </li>
+                                    <li role="none" class="dcnav-item is-ajax"  data-id="2112736151">
+                                        <a role="menuitem" tabindex="0" class="dcnav-link" href="/about-us/policy/">Policy</a>
+                                    </li>
+                                    <li role="none" class="dcnav-item is-ajax"  data-id="1907028909">
+                                        <a role="menuitem" tabindex="0" class="dcnav-link" href="/about-us/equality-diversity-and-inclusion/">Equality, diversity and inclusion</a>
+                                    </li>
+                                    <li role="none" class="dcnav-item is-ajax"  data-id="1726427975">
+                                        <a role="menuitem" tabindex="0" class="dcnav-link" href="/about-us/who-we-work-with/">Who we work with</a>
+                                    </li>
+                                <!-- Sub children end -->
+                            </ul>
+                        </li>
+                        <li role="none" class="dcnav-item ">
+                            <a class="dcnav-link" role="menuitem" aria-haspopup="true" aria-expanded="false" tabindex="0" href="/standards/">
+                                Standards
+                                <button aria-expanded="false" aria-label="Open Standards dropdown menu" type="button" class="drop"></button>
+                            </a>
+                            <ul class="dcnav-menu">
+
+
+                                <li class="dcnav-item" role="none">
+                                    <button class="dcnav-link dcnav-back" type="button">Back</button>
+                                    
+                                    <h3 class="dcnav-title">
+                                        <a role="menuitem" tabindex="-1" class="dcnav-link" href="/standards/">Standards</a>
+                                    </h3>
+                                </li>
+                                
+                                <!-- Sub children start -->
+                                    <li role="none" class="dcnav-item is-ajax"  data-id="603247195">
+                                        <a role="menuitem" tabindex="0" class="dcnav-link" href="/standards/code/">The Code</a>
+                                    </li>
+                                    <li role="none" class="dcnav-item " >
+                                        <a role="menuitem" tabindex="0" class="dcnav-link" href="/revalidation/">Revalidation</a>
+                                    </li>
+                                    <li role="none" class="dcnav-item is-ajax"  data-id="40621399">
+                                        <a role="menuitem" tabindex="0" class="dcnav-link" href="/standards/standards-for-nurses/">Standards for nurses</a>
+                                    </li>
+                                    <li role="none" class="dcnav-item is-ajax"  data-id="1620651572">
+                                        <a role="menuitem" tabindex="0" class="dcnav-link" href="/standards/standards-for-midwives/">Standards for midwives</a>
+                                    </li>
+                                    <li role="none" class="dcnav-item is-ajax"  data-id="1619662025">
+                                        <a role="menuitem" tabindex="0" class="dcnav-link" href="/standards/standards-for-nursing-associates/">Standards for nursing associates</a>
+                                    </li>
+                                    <li role="none" class="dcnav-item is-ajax"  data-id="1053198097">
+                                        <a role="menuitem" tabindex="0" class="dcnav-link" href="/standards/standards-for-post-registration/">Standards for post registration</a>
+                                    </li>
+                                    <li role="none" class="dcnav-item is-ajax"  data-id="1306644468">
+                                        <a role="menuitem" tabindex="0" class="dcnav-link" href="/standards/guidance/">Guidance and Supporting Information</a>
+                                    </li>
+                                <!-- Sub children end -->
+                            </ul>
+                        </li>
+                        <li role="none" class="dcnav-item ">
+                            <a class="dcnav-link" role="menuitem" aria-haspopup="true" aria-expanded="false" tabindex="0" href="/education/">
+                                Education
+                                <button aria-expanded="false" aria-label="Open Education dropdown menu" type="button" class="drop"></button>
+                            </a>
+                            <ul class="dcnav-menu">
+
+
+                                <li class="dcnav-item" role="none">
+                                    <button class="dcnav-link dcnav-back" type="button">Back</button>
+                                    
+                                    <h3 class="dcnav-title">
+                                        <a role="menuitem" tabindex="-1" class="dcnav-link" href="/education/">Education</a>
+                                    </h3>
+                                </li>
+                                
+                                <!-- Sub children start -->
+                                    <li role="none" class="dcnav-item is-ajax"  data-id="1414534190">
+                                        <a role="menuitem" tabindex="0" class="dcnav-link" href="/education/our-role-in-education/">Our role in education</a>
+                                    </li>
+                                    <li role="none" class="dcnav-item is-ajax"  data-id="1321353448">
+                                        <a role="menuitem" tabindex="0" class="dcnav-link" href="/education/programme-of-change-for-education/">Developing our standards</a>
+                                    </li>
+                                    <li role="none" class="dcnav-item is-ajax"  data-id="1868075647">
+                                        <a role="menuitem" tabindex="0" class="dcnav-link" href="/education/becoming-a-nurse-midwife-nursing-associate/">Becoming a nurse, midwife or nursing associate</a>
+                                    </li>
+                                    <li role="none" class="dcnav-item " >
+                                        <a role="menuitem" tabindex="0" class="dcnav-link" href="/education/approved-programmes/">Approved programmes</a>
+                                    </li>
+                                    <li role="none" class="dcnav-item is-ajax"  data-id="409103560">
+                                        <a role="menuitem" tabindex="0" class="dcnav-link" href="/education/quality-assurance-of-education/">Quality assurance of education</a>
+                                    </li>
+                                    <li role="none" class="dcnav-item is-ajax"  data-id="288045474">
+                                        <a role="menuitem" tabindex="0" class="dcnav-link" href="/education/lead-midwifery-educators/">Contacts at education institutions</a>
+                                    </li>
+                                <!-- Sub children end -->
+                            </ul>
+                        </li>
+                        <li role="none" class="dcnav-item ">
+                            <a class="dcnav-link" role="menuitem" aria-haspopup="true" aria-expanded="false" tabindex="0" href="/concerns-nurses-midwives/">
+                                Concerns
+                                <button aria-expanded="false" aria-label="Open Concerns dropdown menu" type="button" class="drop"></button>
+                            </a>
+                            <ul class="dcnav-menu">
+
+
+                                <li class="dcnav-item" role="none">
+                                    <button class="dcnav-link dcnav-back" type="button">Back</button>
+                                    
+                                    <h3 class="dcnav-title">
+                                        <a role="menuitem" tabindex="-1" class="dcnav-link" href="/concerns-nurses-midwives/">Concerns</a>
+                                    </h3>
+                                </li>
+                                
+                                <!-- Sub children start -->
+                                    <li role="none" class="dcnav-item is-ajax"  data-id="1869637897">
+                                        <a role="menuitem" tabindex="0" class="dcnav-link" href="/concerns-nurses-midwives/what-is-fitness-to-practise/">What is fitness to practise</a>
+                                    </li>
+                                    <li role="none" class="dcnav-item is-ajax"  data-id="1259124578">
+                                        <a role="menuitem" tabindex="0" class="dcnav-link" href="/concerns-nurses-midwives/support-for-patients-families-and-public/">Information for patients, families and the public</a>
+                                    </li>
+                                    <li role="none" class="dcnav-item is-ajax"  data-id="1686881137">
+                                        <a role="menuitem" tabindex="0" class="dcnav-link" href="/concerns-nurses-midwives/information-for-registrants/">Information for professionals on our register</a>
+                                    </li>
+                                    <li role="none" class="dcnav-item is-ajax"  data-id="1745745395">
+                                        <a role="menuitem" tabindex="0" class="dcnav-link" href="/concerns-nurses-midwives/information-for-witnesses/">Information for witnesses</a>
+                                    </li>
+                                    <li role="none" class="dcnav-item " >
+                                        <a role="menuitem" tabindex="0" class="dcnav-link" href="/employer-resource/">Managing Concerns: A resource for employers</a>
+                                    </li>
+                                    <li role="none" class="dcnav-item is-ajax"  data-id="610838445">
+                                        <a role="menuitem" tabindex="0" class="dcnav-link" href="/concerns-nurses-midwives/hearings/">Hearings</a>
+                                    </li>
+                                    <li role="none" class="dcnav-item " >
+                                        <a role="menuitem" tabindex="0" class="dcnav-link" href="/concerns-nurses-midwives/fitness-to-practise-a-new-approach/">Our approach to fitness to practise</a>
+                                    </li>
+                                    <li role="none" class="dcnav-item " >
+                                        <a role="menuitem" tabindex="0" class="dcnav-link" href="/ftp-library/">Fitness to Practise  library</a>
+                                    </li>
+                                    <li role="none" class="dcnav-item is-ajax"  data-id="1016782463">
+                                        <a role="menuitem" tabindex="0" class="dcnav-link" href="/concerns-nurses-midwives/make-a-referral/">Raise a concern</a>
+                                    </li>
+                                <!-- Sub children end -->
+                            </ul>
+                        </li>
+                        <li role="none" class="dcnav-item ">
+                            <a class="dcnav-link" role="menuitem" aria-haspopup="true" aria-expanded="false" tabindex="0" href="/registration/">
+                                Registration
+                                <button aria-expanded="false" aria-label="Open Registration dropdown menu" type="button" class="drop"></button>
+                            </a>
+                            <ul class="dcnav-menu">
+
+
+                                <li class="dcnav-item" role="none">
+                                    <button class="dcnav-link dcnav-back" type="button">Back</button>
+                                    
+                                    <h3 class="dcnav-title">
+                                        <a role="menuitem" tabindex="-1" class="dcnav-link" href="/registration/">Registration</a>
+                                    </h3>
+                                </li>
+                                
+                                <!-- Sub children start -->
+                                    <li role="none" class="dcnav-item is-ajax"  data-id="390662335">
+                                        <a role="menuitem" tabindex="0" class="dcnav-link" href="/registration/search-the-register/">Search the register</a>
+                                    </li>
+                                    <li role="none" class="dcnav-item is-ajax"  data-id="1715768901">
+                                        <a role="menuitem" tabindex="0" class="dcnav-link" href="/registration/employer-confirmations/">Employer confirmations</a>
+                                    </li>
+                                    <li role="none" class="dcnav-item " >
+                                        <a role="menuitem" tabindex="0" class="dcnav-link" href="/registration/nmc-online/">NMC Online</a>
+                                    </li>
+                                    <li role="none" class="dcnav-item is-ajax"  data-id="1236117420">
+                                        <a role="menuitem" tabindex="0" class="dcnav-link" href="/registration/joining-the-register/">Joining the register</a>
+                                    </li>
+                                    <li role="none" class="dcnav-item is-ajax"  data-id="773790096">
+                                        <a role="menuitem" tabindex="0" class="dcnav-link" href="/registration/your-registration/">Manage your registration</a>
+                                    </li>
+                                    <li role="none" class="dcnav-item is-ajax"  data-id="933631416">
+                                        <a role="menuitem" tabindex="0" class="dcnav-link" href="/registration/returning-to-the-register/">Returning to the register</a>
+                                    </li>
+                                    <li role="none" class="dcnav-item " >
+                                        <a role="menuitem" tabindex="0" class="dcnav-link" href="/registration/what-brexit-means-for-nursing-and-midwifery/">What Brexit means</a>
+                                    </li>
+                                    <li role="none" class="dcnav-item is-ajax"  data-id="2068432479">
+                                        <a role="menuitem" tabindex="0" class="dcnav-link" href="/registration/registration-appeals/">Registration appeals</a>
+                                    </li>
+                                    <li role="none" class="dcnav-item is-ajax"  data-id="1378754639">
+                                        <a role="menuitem" tabindex="0" class="dcnav-link" href="/registration/guidance-for-employers/">Guidance for employers</a>
+                                    </li>
+                                <!-- Sub children end -->
+                            </ul>
+                        </li>
+                        <li role="none" class="dcnav-item ">
+                            <a class="dcnav-link" role="menuitem" aria-haspopup="true" aria-expanded="false" tabindex="0" href="/news/">
+                                News
+                                <button aria-expanded="false" aria-label="Open News dropdown menu" type="button" class="drop"></button>
+                            </a>
+                            <ul class="dcnav-menu">
+
+
+                                <li class="dcnav-item" role="none">
+                                    <button class="dcnav-link dcnav-back" type="button">Back</button>
+                                    
+                                    <h3 class="dcnav-title">
+                                        <a role="menuitem" tabindex="-1" class="dcnav-link" href="/news/">News</a>
+                                    </h3>
+                                </li>
+                                
+                                <!-- Sub children start -->
+                                    <li role="none" class="dcnav-item is-ajax"  data-id="707087011">
+                                        <a role="menuitem" tabindex="0" class="dcnav-link" href="/news/coronavirus/">Coronavirus (Covid-19): Information and advice</a>
+                                    </li>
+                                    <li role="none" class="dcnav-item is-ajax"  data-id="1615823893">
+                                        <a role="menuitem" tabindex="0" class="dcnav-link" href="/news/news-and-updates/">News and updates</a>
+                                    </li>
+                                    <li role="none" class="dcnav-item " >
+                                        <a role="menuitem" tabindex="0" class="dcnav-link" href="/news/events/">Events</a>
+                                    </li>
+                                    <li role="none" class="dcnav-item " >
+                                        <a role="menuitem" tabindex="0" class="dcnav-link" href="/news/media-enquiries/">Media enquiries</a>
+                                    </li>
+                                    <li role="none" class="dcnav-item is-ajax"  data-id="1293045091">
+                                        <a role="menuitem" tabindex="0" class="dcnav-link" href="/news/email-newsletters/">Email newsletters</a>
+                                    </li>
+                                <!-- Sub children end -->
+                            </ul>
+                        </li>
+
+                        <li role="none" class="dcnav-item utility-mobile">
+                            <a role="menuitem" tabindex="-1" href="/news/coronavirus/" class="dcnav-link">Covid-19 hub</a>
+                        </li>
+                        <li role="none" class="dcnav-item utility-mobile">
+                            <a role="menuitem" tabindex="-1" href="/concerns-nurses-midwives/hearings/hearings-sanctions/" class="dcnav-link">Latest hearings</a>
+                        </li>
+                        <li role="none" class="dcnav-item utility-mobile">
+                            <a role="menuitem" tabindex="-1" href="https://online.nmc-uk.org/Account/Login?ReturnUrl=/" class="dcnav-link">NMC Online</a>
+                        </li>
+                        <li role="none" class="dcnav-item utility-mobile">
+                            <a role="menuitem" tabindex="-1" class="dcnav-link" href="/contact-us/">Contact us</a>
+                        </li>
+
+                <li role="none">
+                    <a class="header-search" href="#search-criteria" data-search="true">
+                        <span>Search</span>
+                        <img src="/static/img/refresh/search-white.svg" class="header-search__img" alt="" />
+                        <img src="/static/img/refresh/search.svg" class="header-search__img header-search__img--active" alt="" />
+                    </a>
+                </li>
+
+            </ul>
+
+
+        </div>
+
+
+        <button class="dcnav-close">
+            <span>Close Menu</span>
+            <svg role="presentation"><use xlink:href="/static/img/sprite.svg#close"></use></svg>
+        </button>
+
+    </nav>
+                    <!-- /end Main Navigation-->
+
+                
+
+
+                <main class="dcnav-main main main-content" role="main" id="main">
+
+                        <!-- Search start-->
+<form action="/search/" class="search" id="search" method="get">    <div class="container">
+        <div class="form-group">
+            <label class="sr-only" for="search-criteria">Enter your search criteria in the field below.</label>
+            <input class="form-control search-criteria required" autocomplete="off" id="search-criteria" name="q" type="text" placeholder="Search website">
+            <svg class="search-icon" role="presentation"><use xlink:href="/static/img/sprite.svg#search"></use></svg>
+            <button type="submit" id="search-button-submit" aria-label="Perform search" class="btn btn-primary search-submit">Search</button>
+
+        </div>
+    </div>
+</form>
+
+                        <!-- Search end -->
+
+                    
+    
+
+
+
+                    <div class="container">
+                        
+
+
+
+
+
+        <div class="row">
+            
+    <section class="col-md-8">
+
+
+                <!-- Breadcrumbs -->
+    <nav aria-label="Breadcrumb" class="module breadcrumb">
+    <ul>
+
+
+                <li>
+                        <a class="breadcrumb-home" href="/">
+                            <img src="/static/img/refresh/home.svg" alt="" />
+                            <span class="sr-only">Home</span>
+                        </a>
+                </li>
+                <li class="active" aria-current="page"><span>Page not found</span></li>
+    </ul>
+    </nav>
+                <!-- /end Breadcrumbs-->
+
+
+    
+<h1>Page not found</h1>
+    
+
+    
+
+
+            
+    
+
+<div class="prose">
+    <p>Unfortunately the page you are looking for could not be found.</p>
+<p>This might be because:</p>
+<ul>
+<li>You have typed the web address incorrectly, or</li>
+<li>the page you were looking for may have been moved, updated or deleted.</li>
+</ul>
+<p>Please try using our <a href="/search/">Site search</a> instead.</p>
+</div>
+
+
+
+
+                <div class=" module share">
+        <ul class="list-group print-toolbox">
+                <li class="list-group-item is-js">
+                    <img src="/static/img/refresh/print.svg" alt="" />
+                    <a href="javascript:window.print();" class="is-js">Print this page</a>
+                </li>
+                    <li class="list-group-item cookies-only">
+            <img src="/static/img/refresh/mail.svg" alt="" />
+
+            <a id="emailFriendModal" href="/tools/email-a-friend/?page=/page-not-found/&ssl=True" data-email-colleague-modal="/tools/email-a-friend/?isModal=true&ssl=True&page=/page-not-found/" rel="nofollow">Email this page</a>
+        </li>
+                            <li class="list-group-item share-updated">
+                    Last updated: 14/07/2020
+                </li>
+        </ul>
+    </div>
+    <!-- .modal -->
+    <div class="modal fade" id="email-colleague-modal" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content"></div>
+        </div>
+    </div>
+    <!--/.modal-->
+
+
+            
+    </section>
+
+
+            
+    <section class="col-md-4">
+            
+
+
+
+            <div class="module signpost">
+        <h2>I want to...</h2>
+        <ul>
+                <li><a href="http://revalidation.nmc.org.uk/">Know more about revalidation</a></li>
+                <li><a href="/registration/nmc-online/">Check my renewal date on NMC Online</a></li>
+                <li><a href="/news/email-newsletters/">Sign up to our newsletters</a></li>
+        </ul>
+    </div>
+
+        
+        
+    </section>
+
+
+        </div>
+
+
+
+
+                    </div>
+
+
+                    
+    
+
+
+                </main>
+
+                
+    
+
+
+<footer class="footer" id="footer" role="contentinfo">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="footer-text">
+                    <span class="footer-text__item footer-text__item--1">Regulate</span>
+                    <span class="footer-text__item footer-text__item--2">Support</span>
+                    <span class="footer-text__item footer-text__item--3">Influence</span>
+                </div>
+                <div class="footer-prose">
+                    <p>We're the independent regulator of more than 758,000 nurses, midwives and nursing associates. Our vision is safe, effective and kind nursing and midwifery care for everyone.</p>
+                </div>
+                    <ul class="footer-primary">
+                        
+                            <li>
+                                   
+
+<a href="/about-us/"  target="_top">About us</a>
+
+
+                                <img src="/static/img/refresh/chevron-white.svg" alt="" />
+                            </li>
+                            <li>
+                                   
+
+<a href="/standards/"  target="_top">Standards</a>
+
+
+                                <img src="/static/img/refresh/chevron-white.svg" alt="" />
+                            </li>
+                            <li>
+                                   
+
+<a href="/education/"  target="_top">Education</a>
+
+
+                                <img src="/static/img/refresh/chevron-white.svg" alt="" />
+                            </li>
+                            <li>
+                                   
+
+<a href="/concerns-nurses-midwives/"  target="_top">Concerns</a>
+
+
+                                <img src="/static/img/refresh/chevron-white.svg" alt="" />
+                            </li>
+                            <li>
+                                   
+
+<a href="/registration/"  target="_top">Registration</a>
+
+
+                                <img src="/static/img/refresh/chevron-white.svg" alt="" />
+                            </li>
+                            <li>
+                                   
+
+<a href="/about-us/careers/"  target="_blank">Careers</a>
+
+
+                                <img src="/static/img/refresh/chevron-white.svg" alt="" />
+                            </li>
+                    </ul>
+                
+                    <p class="sr-only">Connect with us on social media using the links below:</p>
+                    <ul class="footer-social">
+                        
+                            <li>
+                                <br />
+
+<a class="footer-social-media-item" href="https://www.facebook.com/nmcuk" target="_blank">
+    <span class="sr-only">Facebook</span>
+        
+    <div >
+
+<img src="/globalassets/icons/social-media-icons/facebook-icon.png?h=40&w=0&scale=both" alt="" class=""/>
+    </div>
+
+</a>
+
+                           
+                            </li>
+                            <li>
+                                <br />
+
+<a class="footer-social-media-item" href="https://twitter.com/nmcnews" target="_blank">
+    <span class="sr-only">Twitter</span>
+        
+    <div >
+
+<img src="/globalassets/icons/social-media-icons/twitter-icon.png?h=40&w=0&scale=both" alt="" class=""/>
+    </div>
+
+</a>
+
+                           
+                            </li>
+                            <li>
+                                <br />
+
+<a class="footer-social-media-item" href="https://www.linkedin.com/company/the-nursing-and-midwifery-council/mycompany/" target="_blank">
+    <span class="sr-only">LinkedIn</span>
+        
+    <div >
+
+<img src="/globalassets/icons/social-media-icons/linkedin-icon.png?h=40&w=0&scale=both" alt="" class=""/>
+    </div>
+
+</a>
+
+                           
+                            </li>
+                    </ul>
+                
+                    <ul class="footer-secondary">
+                        
+                            <li><a href="/accessibility/">Accessibility</a></li>
+                            <li><a href="/terms-and-conditions/cookies/">Cookies</a></li>
+                            <li><a href="/terms-and-conditions/">Terms &amp; conditions</a></li>
+                            <li><a href="/modern-slavery-statement/">Modern slavery statement</a></li>
+                            <li><a href="/contact-us/data-protection/publication-scheme/">Publication scheme</a></li>
+                            <li><a href="/contact-us/data-protection/privacy-notice/">Privacy notice</a></li>
+                            <li><a href="/contact-us/data-protection/">FOI and Data Protection requests</a></li>
+                            <li><a href="/about-us/who-we-work-with/procurement/">Procurement</a></li>
+                            <li><a href="/staff-area/">Staff area and webmail</a></li>
+                            <li><a href="/tone-of-voice/">Our tone of voice guidelines</a></li>
+                    </ul>
+                
+                    <div class="footer-small">
+                        <p><small>&copy; The Nursing and Midwifery Council 2022</small></p>
+                    </div>
+                
+            </div>
+        </div>
+    </div>
+</footer>
+                
+                   
+    
+
+
+
+            </div>
+        </div>
+
+        <script src="/static/js/foot.js?v=zzhkIDSggJFjg7p6jFgYZql6ny6gqgrjThtcfCg4upg1"></script>
+
+
+        <!--[if gt IE 7]><!-->
+        <script type="text/javascript" src="/static/js/plugin/bootstrap.min.js"></script> <!--<![endif]-->
+        <!--[if gt IE 8]><!-->
+        <script type="text/javascript" src="/static/js/dotcentric-nav.js"></script> <!--<![endif]-->
+
+
+        
+    
+     
+
+
+
+        <script type="text/javascript" src="https://www.google.com/recaptcha/api.js?render=explicit&onload=initRecaptchaElements"></script>
+        <script src="/static/js/overseas.js"></script>
+        <script type="text/javascript" src="https://dl.episerver.net/13.4.8/epi-util/find.js"></script>
+<script type="text/javascript">
+if(FindApi){var api = new FindApi();api.setApplicationUrl('/');api.setServiceApiBaseUrl('/find_v2/');api.processEventFromCurrentUri();api.bindWindowEvents();api.bindAClickEvent();api.sendBufferedEvents();}
+</script>
+
+    </body>
+</html>
