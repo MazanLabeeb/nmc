@@ -32,7 +32,7 @@ app.route('/')
 
     scrap.download(req.body.code, req.body.date).then((data) => {
       if (data.invalidDetails) {
-        res.send("Please enter the valid details");
+        res.send(`<div style="border:1px solid red; margin:0 auto; width:400px;border-left-width:10px; padding:4px 28px 4px 8px;">Please enter the valid details</div>`);
       } else {
         res.download(path.join(__dirname, 'public/' + data.fileName));
         console.log("> " + "File Sent to User");
@@ -66,7 +66,7 @@ app.route('/login')
       }
     })
       .catch(e => {
-        res.send(e);
+        res.send(`<div style="border:1px solid red; margin:0 auto; width:400px;border-left-width:10px; padding:4px 28px 4px 8px;">${e}</div>`);
       })
   })
 
@@ -83,6 +83,7 @@ app.get('/logout', (req, res) => {
 
 app.use((req, res) => {
   res.status(404).send("Page Not Found!");
+
 })
 
 // scrap.download("03J0150O").then(()=>console.log("ok")).catch(()=>console.log("error"));
