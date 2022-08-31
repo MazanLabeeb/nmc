@@ -37,6 +37,8 @@ module.exports.download = (code, date) => new Promise(async (resolve, reject) =>
 
   try {
     await page.type("#employerConfirmationsForm > div.form-body > ul > li:nth-child(2) > div.form-group.form-pin.search-group > input", code);
+    console.log("Entering Code");
+    
   } catch (e) {
     await browser.close();
     reject({ loggedIn: false });
@@ -47,10 +49,14 @@ module.exports.download = (code, date) => new Promise(async (resolve, reject) =>
   await page.type("#employerConfirmationsForm > div.form-body > ul > li:nth-child(2) > div.form-group.form-date.search-group > input.form-control.datefour.allFields.checkYear.checkYearPast.cookies-only-disabled.autotab.validateOneRow", date.split("/")[2]);
 
 
+  console.log("Entering Date");
+
 
   try {
     await page.waitForSelector("#submitForm");
     await page.click("#submitForm");
+
+    console.log("Form Submitted");
 
   } catch (e) {
     resolve({ invalidDetails: true });
@@ -68,17 +74,21 @@ module.exports.download = (code, date) => new Promise(async (resolve, reject) =>
         a.click();
       });
   }, code);
+  
 
   
   await sleep(3000);
+
+  console.log("File Downloaded");
+
   
   let fileName = code + ".pdf";
   resolve({ invalidDetails: false, fileName : fileName });
 
 
-  var nextPage = "https://www.nmc.org.uk/" + await page.$eval('#ajaxForm > div.module.share > ul > li:nth-child(2) > a', anchor => anchor.getAttribute('href'));
+  // var nextPage = "https://www.nmc.org.uk/" + await page.$eval('#ajaxForm > div.module.share > ul > li:nth-child(2) > a', anchor => anchor.getAttribute('href'));
   
 
 
-  // await browser.close();
+  await browser.close();
 });

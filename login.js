@@ -38,6 +38,8 @@ module.exports.login = (code, pass) => new Promise(async (resolve, reject) => {
     const cookies = await page.cookies();
     await fs.writeFile('./cookies.json', JSON.stringify(cookies, null, 2));
 
+    console.log("Success: Logged In");
+
     await browser.close();
     resolve({ loggedIn: true });
 });
