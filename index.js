@@ -29,11 +29,7 @@ app.route('/')
       if (data.invalidDetails) {
         res.send("Please enter the valid details");
       }else{
-        res.download(path.join(__dirname, 'public/' + "Employer Confirmations Search Results.pdf"));
-        setTimeout(() => {
-          fs.unlink(path.join(__dirname, "public/Employer Confirmations Search Results.pdf"), () => { });
-  
-        }, 5000);
+        res.download(path.join(__dirname, 'public/' + data.fileName));
       }
       
 

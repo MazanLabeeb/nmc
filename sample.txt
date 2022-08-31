@@ -1,0 +1,25 @@
+Login as employee through
+1013649 - 6268
+
+NMC Details 	NMC Pin	D.O.B
+		
+Sharon Magaramombe	01C0509E	23/04/1979
+Peter Alang'o	14A0948E	28/07/1978
+Benson Messo	00J1824E	15/05/1978
+Mona Lisa Huni	98C0322E	15/10/1974
+Venekai Lawanson	08I0769E	01/01/1978
+Colin Mabvuva	07H3362E	24/06/1968
+Bowden Marunza	10B1361E	03/06/1980
+Sitembile Matemba	06A0363E	03/07/1963
+Shaleen Moyo	12A0854E	28/08/1980
+Patriot Sibanda	98E1001O	30/04/1966
+Edgar Madhake	13H2118E	03/08/1981
+Killia Ndekwere	08A0539E	28/05/1961
+Sibongile Nyathi	10I316E	13/02/1972
+Innocent Rukundo	12I0898E	01/01/1984
+Nomsa Tshabalala	00H1670O	09/06/1970
+Colin Udeagbala	14J1170E	22/09/1987
+Shannaz Wahid	91I3530E	04/12/1971
+Isiaka Yayi	00F1127O	16/05/1956
+Valarie Zengeni	06I1625E	28/11/1977
+Charity Zhanero	03J0150O	19/02/1972

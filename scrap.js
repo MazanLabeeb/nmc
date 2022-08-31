@@ -5,15 +5,15 @@ const path = require('path');
 const downloadLocation = path.join(__dirname, "public");
 
 const sleep = time => new Promise(resolve => setTimeout(resolve, time));
- 
+
 module.exports.download = (code, date) => new Promise(async (resolve, reject) => {
   code = code.trim();
   date = date.trim();
-  if(date.split.length != 2){
+  if (date.split.length != 2) {
     return resolve({ invalidDetails: true });
   }
   const browser = await puppeteer.launch({
-    headless: false, 
+    headless: false,
   });
   const page = await browser.newPage();
 
@@ -46,28 +46,39 @@ module.exports.download = (code, date) => new Promise(async (resolve, reject) =>
   await page.type("#employerConfirmationsForm > div.form-body > ul > li:nth-child(2) > div.form-group.form-date.search-group > input.form-control.dateMonth.allFields.cookies-only-disabled.autotab.validateOneRow", date.split("/")[1]);
   await page.type("#employerConfirmationsForm > div.form-body > ul > li:nth-child(2) > div.form-group.form-date.search-group > input.form-control.datefour.allFields.checkYear.checkYearPast.cookies-only-disabled.autotab.validateOneRow", date.split("/")[2]);
 
-  await sleep(1500);
 
 
   try {
+    await page.waitForSelector("#submitForm");
     await page.click("#submitForm");
-    await sleep(1500);
-    await page.click("#ajaxForm > div.module.share > ul > li:nth-child(2) > a");
 
   } catch (e) {
     resolve({ invalidDetails: true });
   }
 
+
+  await page.evaluate((code) => {
+    fetch("https://www.nmc.org.uk//registration/employer-confirmations/search/ViewPdf/?encryptedSearchForm=7ZLLDoIwEEX/ZdZdFB8xsCPAwgWGsDAxxkWVUUlKq30kEsK/26bARxiXZ2bOnc0dIL2ZVooD6xAS2IsGP0CgRm250RV7YC2twSPjFjUkwnJOoFLMSV5DVePbbYzbnQeoWuFCaJTRLY0Ll5PLa856N1utA5VSmKe/2QQ+IVMOo3gXw0imhPBldhea3IWD6/Fv/ph5IVB0Ly57VJkU91Z1zNdNT72cpbRpSqkwk1YYSOj4BQ==")
+      .then((res) => { return res.blob(); })
+      .then((data) => {
+        
+        var a = document.createElement("a");
+        a.href = window.URL.createObjectURL(data);
+        a.download = code;
+        a.click();
+      });
+  }, code);
+
+  
   await sleep(3000);
-  resolve({ invalidDetails: false });
-
-  // var nextPage = "https://www.nmc.org.uk/" + await page.$eval('#ajaxForm > div.module.share > ul > li:nth-child(2) > a', anchor => anchor.getAttribute('href'));
-
-
-  // console.log(nextPage);
+  
+  let fileName = code + ".pdf";
+  resolve({ invalidDetails: false, fileName : fileName });
 
 
-  await browser.close();
+  var nextPage = "https://www.nmc.org.uk/" + await page.$eval('#ajaxForm > div.module.share > ul > li:nth-child(2) > a', anchor => anchor.getAttribute('href'));
+  console.log(nextPage);
+
+
+  // await browser.close();
 });
-// https://www.nmc.org.uk/registration/employer-confirmations/search/ViewPdf/?encryptedSearchForm=1ZDNCoJAFIXf5a5nYQwYuRN10aIQF0FEiylvJYxza34gEd+9GUZ9h5bfPXznwhkhv9uO1FH0CBnsVYtfYNCgcdKaWjyxIWfxJKRDA5lyUjKotfBS0FA3+PGJ9dllhLpTviRJ84SnvPI9Jd1KMYQbj3QgZV+Bt5HPKLTHzS7lMLG5IX5Z3JVmd+XoBvwz88qg6t+SBtQFqUenexHGNPPqi5S37YE0FuSUhSyZfg==
-
