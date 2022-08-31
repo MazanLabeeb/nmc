@@ -77,7 +77,7 @@ module.exports.download = (code, date) => new Promise(async (resolve, reject) =>
 
 
   var nextPage = "https://www.nmc.org.uk/" + await page.$eval('#ajaxForm > div.module.share > ul > li:nth-child(2) > a', anchor => anchor.getAttribute('href'));
-  console.log(nextPage);
+  
 
 
   // await browser.close();

@@ -5,6 +5,8 @@ const sleep = (milliseconds) => {
 };
 
 module.exports.login = (code, pass) => new Promise(async (resolve, reject) => {
+    code = code.trim();
+    pass = pass.trim();
     var flag = false;
     const browser = await puppeteer.launch({ headless: true });
     const page = await browser.newPage();
