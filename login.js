@@ -5,7 +5,7 @@ const sleep = (milliseconds) => {
 };
 
 module.exports.login = (code, pass) => new Promise(async (resolve, reject) => {
-    console.log("> "+ "Loggin In...");
+    console.log("> "+ "Logging In...");
 
     code = code.trim();
     pass = pass.trim();

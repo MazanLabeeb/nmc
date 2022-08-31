@@ -43,7 +43,7 @@ module.exports.download = (code, date) => new Promise(async (resolve, reject) =>
   try {
     await page.type("#employerConfirmationsForm > div.form-body > ul > li:nth-child(2) > div.form-group.form-pin.search-group > input", code);
 
-    console.log("> " + "Logs: Entering Code");
+    console.log("> " + "Entering Code");
 
   } catch (e) {
     await browser.close();

@@ -9,7 +9,7 @@ const { login } = require('./login.js');
 app.use(express.urlencoded({ extended: true }));
 
 app.use((req, res, next) => {
-  console.log("> " + req.get('user-agent'));
+  console.log(`> "${req.originalUrl}"  User Agent: ${req.get('user-agent')}`);
   next();
 })
 
@@ -44,7 +44,10 @@ app.route('/')
 
     }).catch((error) => {
       if (!error.loggedIn) {
+
         fs.unlink("./cookies.json", () => {
+          console.log("> " + "Removing Old Sessions");
+
           res.redirect('/');
         });
       }
@@ -75,6 +78,8 @@ app.get('/userAgent', (req, res) => {
 });
 
 app.get('/logout', (req, res) => {
+  console.log("> " + "Logging out...");
+
   fs.unlink("./cookies.json", () => {
     res.redirect('/');
   });
@@ -82,10 +87,13 @@ app.get('/logout', (req, res) => {
 })
 
 app.use((req, res) => {
-  res.status(404).send("Page Not Found!");
+  res.status(404).sendFile(path.join(__dirname, 'view/404.html'));
+
 
 })
 
 // scrap.download("03J0150O").then(()=>console.log("ok")).catch(()=>console.log("error"));
 
-app.listen(port, () => console.log("> " + "Listening to port " + port));
+app.listen(port, () => {
+  console.log("> " + "Listening to port " + port);
+});
