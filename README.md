@@ -9,7 +9,23 @@
 
 ## About <a name = "about"></a>
 
-pinBot2 scrap web pages
+NMC Website Scrapper.
+
+### METHODOLOGY
+- It visits
+```
+https://www.nmc.org.uk/registration/employer-confirmations/
+```
+
+- Login as employee through Id and Pass
+
+- Then NMC will show to input data of 5 nurses at a time.
+
+- We only need to search one nurse at a time from here.
+
+- For nurse search, we need to input DOB also with the pin.
+
+- Download the details in PDF.
 
 ## Getting Started <a name = "getting_started"></a>
 
