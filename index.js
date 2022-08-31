@@ -2,14 +2,14 @@ const scrap = require("./scrap");
 const express = require("express");
 const path = require("path");
 const app = new express();
-const port =  process.env.PORT || 8080 ;
+const port = process.env.PORT || 8080;
 const fs = require('fs');
 const { login } = require('./login.js');
 
 app.use(express.urlencoded({ extended: true }));
 
-app.use((req, res, next)=>{
-  console.log("> "+ req.get('user-agent'));
+app.use((req, res, next) => {
+  console.log("> " + req.get('user-agent'));
   next();
 })
 
@@ -33,10 +33,14 @@ app.route('/')
     scrap.download(req.body.code, req.body.date).then((data) => {
       if (data.invalidDetails) {
         res.send("Please enter the valid details");
-      }else{
+      } else {
         res.download(path.join(__dirname, 'public/' + data.fileName));
+        console.log("> " + "File Sent to User");
+        console.log("\n");
+
+
       }
-      
+
 
     }).catch((error) => {
       if (!error.loggedIn) {
@@ -83,4 +87,4 @@ app.use((req, res) => {
 
 // scrap.download("03J0150O").then(()=>console.log("ok")).catch(()=>console.log("error"));
 
-app.listen(port, () => console.log("> "+ "Listening to port " + port));
+app.listen(port, () => console.log("> " + "Listening to port " + port));

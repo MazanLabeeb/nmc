@@ -13,7 +13,7 @@ module.exports.download = (code, date) => new Promise(async (resolve, reject) =>
     return resolve({ invalidDetails: true });
   }
   const browser = await puppeteer.launch({
-    headless: true,
+    headless: false,
   });
   const page = await browser.newPage();
 
@@ -67,11 +67,14 @@ module.exports.download = (code, date) => new Promise(async (resolve, reject) =>
   } catch (e) {
     resolve({ invalidDetails: true });
   }
+
+  // ADD ERROR HANDLING HERE
+  await page.waitForSelector("#ajaxForm > div.module.share > ul > li:nth-child(2) > a");
   var nextPage = "https://www.nmc.org.uk/" + await page.$eval('#ajaxForm > div.module.share > ul > li:nth-child(2) > a', anchor => anchor.getAttribute('href'));
 
 
 
-  await page.evaluate((code) => {
+  await page.evaluate((code,nextPage) => {
     fetch(nextPage)
       .then((res) => { return res.blob(); })
       .then((data) => {
@@ -81,14 +84,13 @@ module.exports.download = (code, date) => new Promise(async (resolve, reject) =>
         a.download = code;
         a.click();
       });
-  }, code);
+  }, code, nextPage);
   
 
   
   await sleep(3000);
 
   console.log("> "+ "File Downloaded");
-  console.log("\n");
 
   
   let fileName = code + ".pdf";
@@ -96,5 +98,5 @@ module.exports.download = (code, date) => new Promise(async (resolve, reject) =>
 
 
   
-  await browser.close();
+  // await browser.close();
 });
