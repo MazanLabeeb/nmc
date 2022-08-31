@@ -13,7 +13,7 @@ module.exports.download = (code, date) => new Promise(async (resolve, reject) =>
     return resolve({ invalidDetails: true });
   }
   const browser = await puppeteer.launch({
-    headless: true, 
+    headless: false, 
   });
   const page = await browser.newPage();
 
