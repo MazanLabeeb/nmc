@@ -13,7 +13,7 @@ module.exports.download = (code, date) => new Promise(async (resolve, reject) =>
     return resolve({ invalidDetails: true });
   }
   const browser = await puppeteer.launch({
-    headless: true,
+    headless: false,
   });
   const page = await browser.newPage();
 
@@ -73,12 +73,18 @@ module.exports.download = (code, date) => new Promise(async (resolve, reject) =>
     resolve({ invalidDetails: true });
   }
 
+
   // ADD ERROR HANDLING HERE
   try {
+    await page.waitForSelector("#ajaxForm > div.module.share > ul > li:nth-child(2) > a");
     var nextPage = "https://www.nmc.org.uk/" + await page.$eval('#ajaxForm > div.module.share > ul > li:nth-child(2) > a', anchor => anchor.getAttribute('href'));
+
   } catch (e) {
-    await browser.close();
+    // await browser.close();
     console.log("> " + "Invalid Details - Stage 2");
+    console.log("\n\n")
+    console.log(e);
+
     return resolve({ invalidDetails: true });
   }
 
