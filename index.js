@@ -8,6 +8,11 @@ const { login } = require('./login.js');
 
 app.use(express.urlencoded({ extended: true }));
 
+app.use((req, res, next)=>{
+  console.log("> "+ req.get('user-agent'));
+  next();
+})
+
 function loggedIn(req, res, next) {
   if (fs.existsSync('./cookies.json')) {
     next();
@@ -78,4 +83,4 @@ app.use((req, res) => {
 
 // scrap.download("03J0150O").then(()=>console.log("ok")).catch(()=>console.log("error"));
 
-app.listen(port, () => console.log("Listening to port " + port));
+app.listen(port, () => console.log("> "+ "Listening to port " + port));
