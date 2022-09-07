@@ -5,10 +5,11 @@
 - [About](#about)
 - [Getting Started](#getting_started)
 - [Usage](#usage)
+- [API](#api)
 
 ## About <a name = "about"></a>
 
-NMC Website Scrapper.
+NMC Website Scrapper. 
 
 ### METHODOLOGY
 - It visits
@@ -53,3 +54,29 @@ node index.js
 ```
 ip:8080
 ```
+
+
+## API <a name = "api"></a>
+
+#### API USAGE
+
+```
+http://localhost:8080/api/CODE?dob=DD-MM-YYYY
+
+```
+#### EXAMPLE
+
+```
+http://localhost:8080/api/01C0509E?dob=23-04-1979
+
+```
+
+#### RESPONSE
+
+```
+Returns PDF File.
+
+```
+
+
+
