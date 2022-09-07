@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Nurse</title>
+    <script src="https://unpkg.com/flowbite@1.5.2/dist/datepicker.js"></script>
+    <script src="https://cdn.tailwindcss.com">  </script>
+    <style>
+        nav {
+            position: absolute;
+            top: 0px;
+            right: 32px;
+            color: white;
+            padding: 32px;
+        }
+
+        nav a{
+            text-decoration: underline;
+        }
+        nav a:hover{
+            color: lightblue;
+        }
+        .api{
+            color: white;
+            padding: 16px;
+        }
+        h1{
+            font-size: 32px !important;
+            text-align: center;
+        }
+        .code{
+            padding: 0;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        .code .get{
+            background-color: white;
+            color: #1E293B;
+        }
+        .code .url{
+            border: 1px solid white;
+        }
+        .code .get, .code .url{
+            padding: 8px ;
+        }
+        textarea{
+            margin: 0 auto;
+        }
+        
+    </style>
+</head>
+
+<body>
+    <nav>
+        <a  href="/">Home</a>
+        <a style="margin-left: 25px ;" href="/logout">Logout</a>
+      </nav>  
+
+    <div class="api bg-slate-800  ring-1 ring-slate-700/5 shadow-md ">
+        <br><br><br>
+        <h1>API USAGE</h1>
+        <br>
+        <h2 class="code"><span class="get">GET</span><span class="url">http://localhost:8080/api/CODE?dob=DD-MM-YYYY</span></h2>
+        <br>
+        <br>
+        <h1>Example</h1>
+        <br>
+        <h2 class="code"><span class="get">GET</span><span class="url">http://localhost:8080/api/01C0509E?dob=23-04-1979</span></h2>
+        <br><br>
+        <h1>Errors:</h1>
+        <br>
+        <textarea name="" id="" cols="100" rows="10" disabled>{
+            "error": {
+                "code": 2,
+                "message": "dob format is not validated. Proper Format : (DD-MM-YYYY) e.g., GET:api/01C0509E?dob=23-04-1979"
+            }
+        }</textarea>
+
+        
+    </div>
+</body>
+
+</html>
